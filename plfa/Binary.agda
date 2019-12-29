@@ -7,6 +7,7 @@ open import Data.Nat.Properties using (+-suc; +-comm; +-identityʳ)
 import Relation.Binary.PropositionalEquality as Eq
 open Eq using (_≡_; _≢_; refl; inspect; sym; cong)
 open Eq.≡-Reasoning using (begin_; _≡⟨⟩_; _≡⟨_⟩_; _∎)
+open import plfa.Isomorphism hiding (_∘_)
 
 data Bin : Set where
   ⟨⟩ : Bin
@@ -233,3 +234,15 @@ to∘from-One (suc {b} b′) =
 to∘from-Can : ∀ {b : Bin} → Can b → to (from b) ≡ b
 to∘from-Can zero = refl
 to∘from-Can (oneLead b) = to∘from-One b
+
+ℕ-≲-Bin : ℕ ≲ Bin
+ℕ-≲-Bin =
+  record
+  { to = to
+  ; from = from
+  ; from∘to = iso-from∘to
+  }
+
+-- We have no embedding `Bin ≲ ℕ` because leading zeroes allow for
+-- multiple representations of any ℕ. We could make a restricted
+-- embedding for canonical representations.
