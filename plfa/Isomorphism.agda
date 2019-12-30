@@ -5,6 +5,7 @@ open Eq using (_≡_; refl; cong; cong-app)
 open Eq.≡-Reasoning
 open import Data.Nat using (ℕ; zero; suc; _+_)
 open import Data.Nat.Properties using (+-comm)
+open import Function using (id)
 
 -- Definitions
 _∘_ : ∀ {A B C : Set} → (B → C) → (A → B) → (A → C)
@@ -254,8 +255,8 @@ open _⇔_
 ⇔-refl : ∀ {A : Set} → A ⇔ A
 ⇔-refl =
   record
-    { to   = λ{x → x}
-    ; from = λ{y → y}
+    { to   = id
+    ; from = id
     }
 
 ⇔-symm : {A B : Set} → A ⇔ B → B ⇔ A

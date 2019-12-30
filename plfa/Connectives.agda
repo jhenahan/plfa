@@ -334,5 +334,5 @@ case-cancel (inj₂ x) = refl
 ×⊎-implies-⊎× ⟨ inj₂ c , inj₂ d ⟩ = inj₂ ⟨ c , d ⟩
 
 We need to construct an A × B or a C × D, but the marked cases can
-only construct A × D and C × D respectively.
+only construct A × D and C × B respectively.
 -}

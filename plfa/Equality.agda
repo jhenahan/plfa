@@ -59,7 +59,7 @@ open ≤-Reasoning
 
 
 ≡-implies-≤ : ∀ {m n : ℕ} → m ≡ n → m ≤ n
-≡-implies-≤ m≡n rewrite m≡n = ≤-refl
+≡-implies-≤ refl = ≤-refl
 
 +-monoˡ-≤ : ∀ {m n p : ℕ}
   → m ≤ n
